@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import H2TagComponents from '../../Components/H2Tag';
-import HeaderComponents from '../../Components/Header';
-import FotterComponents from '../../Components/Footer';
+
 
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
@@ -23,7 +22,7 @@ const HomeContainer = ()=>{
     
     return (
         <>
-        <HeaderComponents/>
+        
         <Container>
             <Row>
                 <Col md={6} xs={12}>
@@ -53,7 +52,7 @@ const HomeContainer = ()=>{
         </Container>
 
         
-        <FotterComponents />
+       
         </>
     )
 
