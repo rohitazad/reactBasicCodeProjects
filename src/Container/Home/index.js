@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import H2TagComponents from '../../Components/H2Tag';
 
 
@@ -9,16 +9,46 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+
+
 const HomeContainer = ()=>{
+    //console.log('Home Page Component');
     const [number, setNumber] = useState(5);
     const h2tagArrayData = ['Rohit', 'Abhishek'];
-    const handleData  = ()=>{
-      return  h2tagArrayData.map((item, index)=>{
-            //console.log('run data', item)
-          return  <H2TagComponents key={index} tagValue={item}/>
-        })
-    }
     
+    
+
+    useEffect(function(){
+        console.log('Component did mount app start')
+    }, [])
+
+    const updateNu = ()=>{
+        return (
+            console.log('Return func')
+        )
+    }
+
+    useEffect(function(){
+        updateNu()
+        console.log('Component Did  update app update')
+    }, [number])
+
+    
+
+    useEffect(function(){
+        return () =>{
+            console.log('component unmount app destroyy/ leave jump to the next component ');
+        };
+    }, [])
+
+
+
+    const handleData  = ()=>{
+        return  h2tagArrayData.map((item, index)=>{
+              //console.log('run data', item)
+            return  <H2TagComponents key={index} tagValue={item}/>
+          })
+      }
     
     return (
         <>
