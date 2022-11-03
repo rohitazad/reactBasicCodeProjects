@@ -10,6 +10,7 @@ import AboutPageContainer from '../Container/About';
 import HeaderComponents from '../Components/Header';
 import FotterComponents from '../Components/Footer';
 
+import UseRefComp from '../Container/UseRef';
 const AllRouteWrap = ()=>{
 
     return (
@@ -20,6 +21,7 @@ const AllRouteWrap = ()=>{
                 <Routes>
                     <Route path="/" element={<HomeContainer />}/>
                     <Route path="/about" element={<AboutPageContainer />}/>
+                    <Route path="/useref" element={<UseRefComp/>} />
                 </Routes>
                 <FotterComponents />
             </BrowserRouter>
