@@ -9,6 +9,7 @@ import AboutPageContainer from '../Container/About';
 
 import HeaderComponents from '../Components/Header';
 import FotterComponents from '../Components/Footer';
+import ProductContainer from '../Container/Products'
 
 import UseRefComp from '../Container/UseRef';
 const AllRouteWrap = ()=>{
@@ -22,6 +23,8 @@ const AllRouteWrap = ()=>{
                     <Route path="/" element={<HomeContainer />}/>
                     <Route path="/about" element={<AboutPageContainer />}/>
                     <Route path="/useref" element={<UseRefComp/>} />
+                    <Route path="/products" element={<ProductContainer/>} />
+                    
                 </Routes>
                 <FotterComponents />
             </BrowserRouter>
