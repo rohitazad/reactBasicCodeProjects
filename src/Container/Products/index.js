@@ -4,12 +4,12 @@ import axios from 'axios';
 import SingleCard from '../../Components/Card';
 
 const ProductContainer = ()=>{
-    const [postData, setPostData] = useState([])
-    const API_URL = 'https://dummyjson.com/posts?limit=10'
+    const [productData, setProductData] = useState([])
+    const API_URL = 'https://dummyjson.com/products?limit=20'
     const fetchData = async ()=>{
         const data = await axios(API_URL);
-        const myData = data.data.posts;
-        setPostData(myData)
+        const myData = data.data.products;
+        setProductData(myData)
         console.log('data',data);
     }
     useEffect(()=>{
@@ -30,7 +30,7 @@ const ProductContainer = ()=>{
             </p>
             {
                 
-                postData && postData.length > 0 ? postData.map((item)=>{
+                productData && productData.length > 0 ? productData.map((item)=>{
                     return (
                         <SingleCard key={item.id} data={item} />
                     )

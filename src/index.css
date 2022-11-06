@@ -51,3 +51,25 @@ p .badge.bg-secondary {
   padding:5px;
   margin:2px;
 }
+.blog span img{width:100px;}
+.blog h3 img{
+  width:250px;
+}
+h2 a{
+  font-size:20px;
+  color:blue
+}
+
+
+.productDetails h1{
+  font-size: 16px;;
+}
+.productDetails h2{
+  font-size: 14px;;
+}
+.productDetails > img{
+  width:250px;
+}
+.productDetails .prodcutImage img{
+  width:150px;
+}
