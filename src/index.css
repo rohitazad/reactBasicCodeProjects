@@ -73,3 +73,6 @@ h2 a{
 .productDetails .prodcutImage img{
   width:150px;
 }
+.list-group-item.active{
+  background-color: blueviolet;
+}
