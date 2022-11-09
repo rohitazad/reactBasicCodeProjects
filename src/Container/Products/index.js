@@ -13,20 +13,35 @@ const ProductContainer = ()=>{
     const [productData, setProductData] = useState([])
     const [productDataCat, setProductDataCat] = useState([]);
     const [currentCat, setCurrentCat] = useState ('smartphones');
+    const [inputValue, setInputValue] = useState (currentCat)
     const fetchData = async ()=>{
         const data = await axios(`https://dummyjson.com/products/category/${currentCat}`);
         const myData = data.data.products;
+        
         setProductData(myData)
-        console.log('data',data);
     }
     console.log('currentCat',currentCat);
     const fetchDataCate = async ()=>{
         const data = await axios('https://dummyjson.com/products/categories');
+        //console.log('datacate',data.data);
         setProductDataCat(data.data)
-        // console.log('datacate',data.data);
+         
     }
-    useEffect(()=>{
-        fetchData();
+    
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        let catValue = inputValue ;
+
+        
+        if(productDataCat.indexOf(catValue) === -1 ){
+            alert('This text is not in the categoery')
+        }else {
+            setCurrentCat(catValue)
+        }
+        console.log('Form Subnmit ')
+    }
+    useEffect( ()=>{
+         fetchData();
         fetchDataCate();
         // eslint-disable-next-line
     },[])
@@ -56,6 +71,29 @@ const ProductContainer = ()=>{
                     
                 </Col>
                 <Col sm={10}>
+                    <select value={currentCat} onChange={(e)=>{
+                        setCurrentCat(e.target.value)
+                    }}>
+                    {
+                        productDataCat && productDataCat.length > 0 ? productDataCat.map((item)=>{
+                            return (
+                                <option key={item} value={item}>
+                                    {item}
+                                </option>
+                            )
+                        }) : <option>No item</option>
+                    }
+                     </select>
+                    <div className="">
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" value={inputValue} onChange={(e)=>{
+                                    setInputValue(e.target.value.toLowerCase())
+                                }}/>
+                            <button type="submit">Search Item</button> 
+                        </form>
+                        
+                    </div>
+
                     {
                     
                         productData && productData.length > 0 ? productData.map((item)=>{
