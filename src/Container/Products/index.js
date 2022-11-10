@@ -12,10 +12,16 @@ import CategeoryComponents from '../../Components/Categ';
 const ProductContainer = ()=>{
     const [productData, setProductData] = useState([])
     const [productDataCat, setProductDataCat] = useState([]);
-    const [currentCat, setCurrentCat] = useState ('smartphones');
+    const [currentCat, setCurrentCat] = useState ('');
     const [inputValue, setInputValue] = useState (currentCat)
     const fetchData = async ()=>{
-        const data = await axios(`https://dummyjson.com/products/category/${currentCat}`);
+        let APIURL = '';
+        if(currentCat && currentCat !== ''){
+            APIURL = `https://dummyjson.com/products/category/${currentCat}`
+        }else {
+            APIURL = `https://dummyjson.com/products`
+        }
+        const data = await axios(APIURL);
         const myData = data.data.products;
         
         setProductData(myData)
@@ -39,6 +45,9 @@ const ProductContainer = ()=>{
             setCurrentCat(catValue)
         }
         console.log('Form Subnmit ')
+    }
+    const showAllProducts = ()=>{
+        setCurrentCat('')
     }
     useEffect( ()=>{
          fetchData();
@@ -91,7 +100,7 @@ const ProductContainer = ()=>{
                                 }}/>
                             <button type="submit">Search Item</button> 
                         </form>
-                        
+                        <button type="button" onClick={showAllProducts}>All Products</button>
                     </div>
 
                     {

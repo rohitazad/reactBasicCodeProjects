@@ -14,6 +14,7 @@ const HeaderComponents = ()=>{
                 <Link to="/about">About Page</Link>
                 <Link to="/useref">UseRef Page</Link>
                 <Link to="/products">Products</Link>
+                <Link to="/blog">Blog</Link>
             </Container>
            </Navbar>
         </header>
