@@ -1,13 +1,13 @@
 import React from 'react';
 import BlogListComponents from '../../Components/BlogList';
 
-const BlogContainer = ({blogData})=>{
+const BlogContainer = ()=>{
     
     return (
         <>
             Hello i m Blog Container Page
             <br />
-            <BlogListComponents blogData={blogData} />
+            <BlogListComponents  />
         </>
     )
 }
